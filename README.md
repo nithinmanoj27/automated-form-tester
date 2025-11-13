@@ -75,17 +75,14 @@ http://127.0.0.1:5000/
 
 ---
 
-## Example Output Format
 
-```json
+## Example Output Format
+`` 
 {
-  "fields": [
-    // Array of field metadata objects
-  ],
-  "test_cases": [
-    // Array of generated test case objects
-  ]
+"fields": [...],
+"test_cases": [...]
 }
+``
 
 ---
 
@@ -95,4 +92,5 @@ http://127.0.0.1:5000/
 - **Suresh** – User interface, testing, documentation  
 
 ---
+
 
