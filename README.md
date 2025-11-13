@@ -1,33 +1,36 @@
 # Automated Test Case Generator for Web Forms
 
+A Flask-based system that parses HTML forms and automatically generates structured test cases including valid, invalid, boundary, negative, and combinatorial inputs. The tool improves testing quality, reduces manual QA effort, and ensures systematic validation of web forms.
+
 ## Overview
-This project automatically analyses HTML web forms and generates test cases (valid, invalid, boundary, and security checks) to speed up manual QA testing. It is implemented with Flask (backend) and a simple front-end for quick demonstration.
+Web applications rely on form-based input, and validating this input is essential for ensuring robustness, security, and correctness. This project automates the entire form-testing process by converting an HTML form into a complete test-case suite. It extracts input fields, identifies validation constraints, and produces thorough test coverage.
+
+## Abstract
+This project builds an automated testing tool that takes any HTML form as input and generates comprehensive test cases such as valid, invalid, boundary, and security-focused inputs. The system uses BeautifulSoup for parsing and a Python-based generator for creating test scenarios. The project demonstrates key software engineering principles, with a focus on performance, reliability, usability, and maintainability.
 
 ## Features
-- Parses form inputs (input, textarea, select).
-- Generates baseline valid case, single-field negative tests, and combinatorial cases.
-- Includes common security payloads (SQLi, XSS) for negative tests.
-- Exportable JSON output (ready to feed into automated test harnesses).
+### HTML Parsing
+- Detects all input field types  
+- Reads constraints like required, minlength, maxlength, min, max, pattern  
+- Extracts select options, checkbox and radio values  
 
-## Quality Attributes (measured & justified)
-- **Usability**: Simple web UI + JSON output. Demonstrated by quick generation in UI and sample outputs in `examples/`.
-- **Performance**: Parsing/generation is local and lightweight; combinatorial generation capped (configurable `max_combinations`) to avoid blow-up.
-- **Maintainability**: Modular `parse_form` and `generate_test_cases` functions with docstrings; tests in `tests/`.
+### Test Case Generation
+- Baseline valid test case  
+- One-field-at-a-time negative tests  
+- Boundary value analysis  
+- Invalid format tests  
+- Security test cases (SQL injection, XSS payloads)  
+- Combinatorial test cases (pairwise-style, capped for performance)
 
-## Setup (VS Code)
-1. Create virtualenv: `python -m venv venv`  
-2. Activate it:
-   - Windows: `venv\Scripts\activate`
-   - Linux/macOS: `source venv/bin/activate`
-3. Install: `pip install -r requirements.txt`
-4. Run app: `python app.py`  
-5. Open `http://127.0.0.1:5000/` in browser.
+### UI / UX
+- Web interface built with HTML, CSS, and JavaScript  
+- Paste HTML form directly  
+- View JSON test-case output instantly  
 
-## How to use
-- Paste your form HTML into the textarea and click Generate.
-- Or click Generate to use the sample form (server fallback).
-- Output JSON shows `fields` and `test_cases`.
+### Maintainable Codebase
+- Parser, generator, and interface are modular  
+- Easy to extend with new rules  
 
-## Extending
-- Add support for `pattern`, `minlength`, `maxlength` enforcement in the generator.
-- Add export to CSV/Excel and a step to run test cases against an endpoint.
+---
+
+## High-Level Architecture (PlantUML)
