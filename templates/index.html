@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <title>Automated Form Tester</title>
+
+  <!-- TailwindCSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- PrismJS for JSON highlighting -->
+  <link href="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/prism.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/prismjs@1.29.0/components/prism-json.min.js"></script>
+
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/3342/3342147.png" />
+</head>
+
+<body class="bg-gradient-to-br from-gray-100 to-gray-200 min-h-screen flex items-center justify-center font-inter">
+
+  <div class="w-full max-w-5xl bg-white/90 backdrop-blur-lg rounded-2xl shadow-2xl p-10 border border-gray-200">
+    <h1 class="text-3xl font-bold text-gray-800 mb-2 text-center"> Automated Test Case Generator</h1>
+    <p class="text-center text-gray-600 mb-8">Paste an HTML form below or use a sample to instantly generate structured test cases.</p>
+
+    <div class="grid md:grid-cols-2 gap-6">
+      <!-- Left panel -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-2">HTML Form Input</label>
+        <textarea id="html_text" name="html_text"
+          class="w-full h-[400px] p-4 font-mono text-sm border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:outline-none"
+          placeholder="Paste your HTML form here..."></textarea>
+
+        <div class="flex gap-3 mt-4">
+          <button id="useSample"
+            class="bg-gray-700 hover:bg-gray-800 text-white px-4 py-2 rounded-lg font-medium transition">Use Sample</button>
+
+          <button id="generate"
+            class="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white px-5 py-2 rounded-lg font-semibold shadow-md transition transform hover:scale-105">Generate Test Cases</button>
+        </div>
+      </div>
+
+      <!-- Right panel -->
+      <div>
+        <label class="block text-gray-700 font-medium mb-2">Output (JSON)</label>
+
+        <div id="summary" class="hidden bg-blue-50 text-blue-800 border border-blue-200 rounded-lg p-3 mb-3 text-sm font-medium">
+          <p id="fieldSummary"></p>
+        </div>
+
+        <pre id="output" class="language-json text-sm h-[400px] overflow-auto rounded-lg border border-gray-300 bg-gray-900 text-gray-100 p-4"></pre>
+
+        <div class="flex gap-3 mt-3">
+          <button id="copyOutput"
+            class="bg-green-600 hover:bg-green-700 text-white px-4 py-2 rounded-lg font-medium transition">Copy JSON</button>
+
+          <button id="downloadJSON"
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded-lg font-medium transition">Download JSON</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="/static/main.js"></script>
+</body>
+</html>
