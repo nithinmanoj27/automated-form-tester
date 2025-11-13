@@ -77,11 +77,15 @@ http://127.0.0.1:5000/
 
 ## Example Output Format
 
+```json
 {
-"fields": [...],
-"test_cases": [...]
+  "fields": [
+    // Array of field metadata objects
+  ],
+  "test_cases": [
+    // Array of generated test case objects
+  ]
 }
-
 
 ---
 
